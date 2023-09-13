@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_car_details_car_features",
+  "info": {
+    "displayName": "Car Features",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "exterior_color": {
+      "type": "string"
+    },
+    "mileage": {
+      "type": "biginteger"
+    },
+    "mpg": {
+      "type": "integer"
+    },
+    "fuel_type": {
+      "type": "enumeration",
+      "enum": [
+        "Gasoline",
+        "Petrol",
+        "Electric",
+        "Diesel fuel",
+        "Ethanol",
+        "Biodiesel"
+      ]
+    },
+    "transmission": {
+      "type": "enumeration",
+      "enum": [
+        "Automatic",
+        "Manual"
+      ],
+      "default": "Automatic"
+    },
+    "drivetrain": {
+      "type": "enumeration",
+      "enum": [
+        "Front-wheel drive",
+        "Rear-wheel drive",
+        "All-wheel drive",
+        "Four-wheel drive"
+      ]
+    },
+    "interior_color": {
+      "type": "string"
+    },
+    "horsepower": {
+      "type": "integer"
+    }
+  }
+}
