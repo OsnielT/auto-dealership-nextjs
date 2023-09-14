@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Card({ car, carouselItems, formattedPrice }) {
   return (
     <div
-    className={`card bg-white hover:bg-slate-200 p-2 px-4 py-4 w-full h-full relative rounded-lg flex flex-col justify-between ${
+    className={`card border-2 hover:border-slate-400 bg-white hover:bg-slate-200 p-2 px-4 py-4 w-full h-full relative rounded-lg flex flex-col justify-between ${
       car.attributes.featured == true ? "featured" : null
     } `}
     key={car.id}
@@ -13,6 +13,7 @@ export default function Card({ car, carouselItems, formattedPrice }) {
     <div>
         
       <Carousel items={carouselItems} />
+      
       <Link href={`vehicle/${car.id}`}>
         <p className="text-slate-950 font-extrabold  pt-4">
           {car.attributes.Title}{" "}
@@ -32,7 +33,7 @@ export default function Card({ car, carouselItems, formattedPrice }) {
       </Link>
     </div>
 
-    <Link className="bg-sky-600 border-2 border-sky-600 rounded-md hover:bg-transparent hover:text-sky-700 transition-all ease-in-out duration-300 px-4 py-1 w-1/4" href={`vehicle/${car.id}`}>
+    <Link className="bg-sky-600 border-2 border-sky-600 text-white rounded-md hover:bg-transparent hover:text-sky-700 transition-all ease-in-out duration-300 px-4 py-1 w-2/6 text-center" href={`vehicle/${car.id}`}>
    
         Details
 

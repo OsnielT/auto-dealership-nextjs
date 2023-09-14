@@ -27,7 +27,7 @@ export default async function RootLayout({ children }) {
         className={`${inter.className} bg-slate-200 flex flex-col h-screen justify-between`}
       >
         <Navbar>{company_info}</Navbar>
-        <main className="mb-auto h-full text-slate-800 bg-white w-9/12 mx-auto bg-white">
+        <main className="mb-auto h-max text-slate-800 bg-white w-9/12 mx-auto bg-white">
           {children}
         </main>
         <Footer>{company_info}</Footer>

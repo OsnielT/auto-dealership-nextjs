@@ -17,7 +17,7 @@
 }
 
 .featured {
-  border: 3px solid rgb(2 132 199);
+  border: 3px solid rgb(2 132 199) !important;
 
 }
 
@@ -66,4 +66,21 @@ body {
   
     margin-bottom: 1rem;
   
+}
+
+.banner{
+  position: relative;
+  height: min-content;
+}
+.panel{
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  position: absolute;
+  left: 999999rem;
+}
+.panel.active{
+  opacity: 1;
+  position: relative;
+  left: unset;
 }
