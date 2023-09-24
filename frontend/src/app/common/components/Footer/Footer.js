@@ -5,10 +5,10 @@ import NavItems from "../NavItems/NavItems";
 export default function Footer(company_info) {
   const data = company_info.children.attributes;
   return (
-    <footer className="text-white bg-neutral-800 space-x-10 p-5 pt-9 px-10 border-t-8 border-red-600 justify-center align-middle content-center text-center ">
+    <footer className="text-white bg-slate-800 space-x-10 p-5 pt-9 px-10 justify-center align-middle content-center text-center ">
 
       <div className="inline-grid grid-cols-4 gap-4 w-full px-10 mx-auto">
-        <ul className="p-0 m-0">
+        <ul className="p-0 m-0 flex flex-col justify-evenly">
           <li>{data.street_address_1}</li>
           <li>{data.street_address_2}</li>
           <li>
@@ -21,11 +21,11 @@ export default function Footer(company_info) {
             <a href={`mailto:${data.email}`}>{data.email}</a>
           </li>
         </ul>
-        <div className="border-s-2 border-neutral-700">
+        <div className="border-s-2 border-slate-700">
           <NavItems className={`ms-10`} />
         </div>
-        <div className="border-s-2 border-neutral-700"></div>
-        <div className="border-s-2 border-neutral-700 flex flex-col ps-10">
+        <div className="border-s-2 border-slate-700"></div>
+        <div className="border-s-2 border-slate-700 flex flex-col justify-evenly ps-10">
           <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Instagram/${data.instagram}`}>
             Instagram
           </a>
@@ -46,7 +46,7 @@ export default function Footer(company_info) {
       </div>
         <Link
         href="/"
-        className={`text-xl font-medium text-center block border-t-2 pt-5 border-neutral-700 italic mt-8`}
+        className={`text-xl font-medium text-center block border-t-2 pt-5 border-slate-700 italic mt-8`}
       >
         {data.name}
       </Link>

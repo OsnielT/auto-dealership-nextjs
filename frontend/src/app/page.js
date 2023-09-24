@@ -48,8 +48,8 @@ export default function Page() {
 
   return (
     <main className="">
-      <div className={` text-center p-8 bg-white`}>
-        <div className="bg-white banner rounded-2xl flex flex-col  justify-center gap-5 py-8 px-2 ">
+      <div className={` text-center bg-white`}>
+        <div className="bg-white banner flex flex-col  justify-center gap-5 ">
           {featuredCars.map((car, idx) => {
             const { Title } = car.attributes;
             const { url } =
@@ -60,7 +60,7 @@ export default function Page() {
             );
 
             return (
-              <div className={`panel items-center bg-slate-200 rounded-3xl overflow-hidden shadow-2xl flex ${idx == 0 ? "active" : ""}`}>
+              <div className={`panel text-white items-center bg-slate-700 overflow-hidden shadow-sm flex ${idx == 0 ? "active" : ""}`}>
                 <div className={`w-1/2 `}>
                   <div className={` `}>
                     <Image
@@ -99,14 +99,19 @@ export default function Page() {
                       {Car_Features.horsepower}
                     </li>
                   </ul>
-                  <Link className="bg-slate-700 block hover:bg-slate-300 transition-all duration-150 text-white py-3 mt-5 rounded-lg text-center w-1/4 cursor-pointer" href={`/`}>Learn More</Link>
+                  <Link className="border border-white bg-slate-700 block hover:bg-white hover:text-black transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 cursor-pointer" href={`/`}>Learn More</Link>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-
+<section className="bg-slate-800 p-8">
+  <form className="w-6/12 flex gap-4 mx-auto" method="post" action="">
+    <input className="p-4 px-7 rounded-lg w-full" type="text" name="search" placeholder="Search Make, Model, or Keyword" />
+    <input className="p-4 px-6 rounded-lg   cursor-pointer bg-sky-600 hover:bg-sky-500 transition-all duration-150 text-white" value="Search" name="submit" type="submit"/>
+  </form>
+</section>
       <section className="inline-grid grid-cols-4 gap-4 w-full p-10 mx-auto">
         {cars.map((car) => {
           const carouselItems =

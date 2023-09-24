@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
@@ -18,7 +21,15 @@
 
 .featured {
   border: 3px solid rgb(2 132 199) !important;
+  color: rgb(2 132 199);
+}
 
+a.featured {
+  border-width: 2px !important;
+}
+
+a.featured:hover {
+  background: rgb(2 132 199) !important;
 }
 
 .featured:after{
@@ -31,6 +42,7 @@
   right: 0px;
   top: 0px;
   padding: 2px 8px;
+  border-top-right-radius: .5rem;
   border-bottom-left-radius: .5rem;
   font-size: 12px;
 }
