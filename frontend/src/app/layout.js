@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-slate-200 flex flex-col h-screen justify-between`}
+        className={`${inter.className} bg-slate-100 flex flex-col h-screen justify-between`}
       >
         <Navbar>{company_info}</Navbar>
         <main className="mb-auto h-max text-slate-800 bg-white w-9/12 mx-auto bg-white">

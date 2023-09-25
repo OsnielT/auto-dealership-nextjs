@@ -26,14 +26,14 @@ export default function Card({ car, carouselItems, formattedPrice }) {
           >
             {car.attributes.used_status}
           </span>
-          <p className="text-slate-950 pt-4 text-2xl mb-3">{formattedPrice}</p>
+          <p className="text-sky-950 pt-4 text-3xl mb-3">{formattedPrice}</p>
         </Link>
       </div>
 
       <Link
         className={`${
           car.attributes.featured == true ? "featured" : null
-        } border-2 border-slate-600 text-dark rounded-md  hover:text-white hover:bg-slate-600 transition-all ease-in-out duration-200 px-3 py-1 w-5/12 text-center`}
+        } border-2 border-slate-600 font-bold text-dark rounded-md  hover:text-white hover:bg-slate-600 transition-all ease-in-out duration-200 px-3 py-1 w-5/12 text-center`}
         href={`vehicle/${car.id}`}
       >
         Learn More

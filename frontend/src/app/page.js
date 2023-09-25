@@ -49,7 +49,7 @@ export default function Page() {
   return (
     <main className="">
       <div className={` text-center bg-white`}>
-        <div className="bg-white banner flex flex-col  justify-center gap-5 ">
+        <div className="bg-white banner overflow-hidden flex flex-col  justify-center gap-5 ">
           {featuredCars.map((car, idx) => {
             const { Title } = car.attributes;
             const { url } =
@@ -60,7 +60,7 @@ export default function Page() {
             );
 
             return (
-              <div className={`panel text-white items-center bg-slate-700 overflow-hidden shadow-sm flex ${idx == 0 ? "active" : ""}`}>
+              <div className={`panel text-slate-100 items-center bg-sky-800 overflow-hidden shadow-sm flex ${idx == 0 ? "active" : ""}`}>
                 <div className={`w-1/2 `}>
                   <div className={` `}>
                     <Image
@@ -68,11 +68,12 @@ export default function Page() {
                       src={`http://localhost:1337${url}`}
                       width={800}
                       height={800}
+                      loading="lazy"
                       alt={Title}
                     />
                   </div>
                 </div>
-                <div className={`p-10 flex flex-col text-left w-1/2 `}>
+                <div className={`p-10 px-14 flex flex-col text-left w-1/2 `}>
                   <span className={`text-2xl font-bold`}>{Title}</span>
                   <span className={`text-4xl font-light py-8`}>
                     {formattedPrice(car.attributes.price)}
@@ -99,17 +100,18 @@ export default function Page() {
                       {Car_Features.horsepower}
                     </li>
                   </ul>
-                  <Link className="border border-white bg-slate-700 block hover:bg-white hover:text-black transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 cursor-pointer" href={`/`}>Learn More</Link>
+                  <Link className="border border-white font-bold bg-sky-800 block hover:bg-sky-600 hover:border-sky-600 transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 cursor-pointer" href={`/`}>Learn More</Link>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-<section className="bg-slate-800 p-8">
+<section className="bg-sky-600 p-14 border-b-8 border-sky-500">
+  <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">You wanna search for something? </p>
   <form className="w-6/12 flex gap-4 mx-auto" method="post" action="">
-    <input className="p-4 px-7 rounded-lg w-full" type="text" name="search" placeholder="Search Make, Model, or Keyword" />
-    <input className="p-4 px-6 rounded-lg   cursor-pointer bg-sky-600 hover:bg-sky-500 transition-all duration-150 text-white" value="Search" name="submit" type="submit"/>
+    <input className="p-4 px-7 rounded-lg w-full border-4 focus:border-sky-500 focus:outline-none hover:border-sky-500 transition-all duration-150" type="text" name="search" placeholder="Search Make, Model, or Keyword" />
+    <input className="p-4 px-6 rounded-lg  text-lg font-bold cursor-pointer border-2 border-sky-100 hover:border-sky-500 hover:bg-sky-500 transition-all duration-150 text-white" value="Search" name="submit" type="submit"/>
   </form>
 </section>
       <section className="inline-grid grid-cols-4 gap-4 w-full p-10 mx-auto">

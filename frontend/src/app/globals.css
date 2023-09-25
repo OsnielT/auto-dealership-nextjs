@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-
+/* *{border: 1px dashed red;} */
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -20,8 +20,8 @@
 }
 
 .featured {
-  border: 3px solid rgb(2 132 199) !important;
-  color: rgb(2 132 199);
+  border: 3px solid rgb(14 165 233) !important;
+  color: rgb(14 165 233);
 }
 
 a.featured {
@@ -29,11 +29,11 @@ a.featured {
 }
 
 a.featured:hover {
-  background: rgb(2 132 199) !important;
+  background: rgb(14 165 233) !important;
 }
 
 .featured:after{
-  background-color: rgb(2 132 199);
+  background-color: rgb(14 165 233);
   content: "Featured";
   font-style: italic;
   display: block;
