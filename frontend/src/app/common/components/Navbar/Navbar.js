@@ -12,15 +12,15 @@ export default function Navbar(company_info) {
     return null;
   };
   return (
-    <header>
-      <nav className="flex flex-row shadow sticky justify-between px-20  text-white bg-sky-600 items-center ">
-        <Link href="/" className="me-10 font-thin text-3xl italic  ">
+    <header className="sticky px-20 shadow text-white bg-sky-600 py-4 md:py-0">
+      <nav className="container mx-auto flex flex-col md:flex-row justify-between items-center ">
+        <Link href="/" className="md:me-10 font-thin text-3xl italic  ">
           <span className=" font-bold">A</span>uto
           <span className=" font-bold">D</span>ealer
         </Link>
-        <NavItems className={`flex space-x-4`} />
+        <NavItems className={`flex space-x-3`} />
         <a
-          className="ms-auto me-0 block text-2xl p-4 font-extrabold hover:bg-sky-700  transition-all duration-150"
+          className="mx-auto md:ms-auto md:me-0 block text-2xl p-2 px-3 md:p-4 bg-sky-700 md:bg-transparent rounded-full font-extrabold md:hover:bg-sky-700  transition-all duration-150"
           href={`tel:${data.phone}`}
         >
           {formattedPhone(data.phone)}
