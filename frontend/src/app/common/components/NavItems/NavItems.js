@@ -6,7 +6,7 @@ export default function NavItems({className}) {
     <ul className={className}>
     <li>
       <Link
-        className="text-white  hover:bg-sky-700 p-5 block transition-all duration-200 ease-in-out"
+        className="text-white  hover:bg-sky-700 p-3 lg:p-5 block transition-all duration-200 ease-in-out"
         href="/"
       >
         Home
@@ -14,7 +14,7 @@ export default function NavItems({className}) {
     </li>
     <li>
       <Link
-        className="text-white hover:bg-sky-700  p-5 block transition-all duration-200 ease-in-out"
+        className="text-white hover:bg-sky-700  p-3 lg:p-5 block transition-all duration-200 ease-in-out"
         href="/about-us"
       >
         About Us
@@ -22,7 +22,7 @@ export default function NavItems({className}) {
     </li>
     <li>
       <a
-        className="text-white hover:bg-sky-700 p-5 block transition-all duration-200 ease-in-out"
+        className="text-white hover:bg-sky-700 p-3 lg:p-5 block transition-all duration-200 ease-in-out"
         href="#"
       >
         Contact
