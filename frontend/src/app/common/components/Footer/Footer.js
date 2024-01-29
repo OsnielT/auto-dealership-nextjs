@@ -3,24 +3,26 @@ import React from "react";
 import NavItems from "../NavItems/NavItems";
 
 
-export default function Footer(company_info) {
-  const data = company_info.children.attributes;
+export default function Footer({data}) {
+  if(data){
+    const business = data.children.attributes;
+  }
 
   return (
     <footer className="text-white bg-sky-700 space-x-10 p-5 pt-9 px-10 justify-center align-middle content-center text-center ">
 
       <div className="inline-grid grid-cols-4 gap-4 w-full px-10 mx-auto">
         <ul className="p-0 m-0 flex flex-col justify-evenly">
-          <li>{data.street_address_1}</li>
-          <li>{data.street_address_2}</li>
+          <li>{business.street_address_1}</li>
+          <li>{business.street_address_2}</li>
           <li>
-            {data.city}, {data.state}, {data.zip_code}
+            {business.city}, {business.state}, {business.zip_code}
           </li>
           <li>
-            <a href={`tel:${data.phone}`}>{data.phone}</a>
+            <a href={`tel:${business.phone}`}>{business.phone}</a>
           </li>
           <li>
-            <a href={`mailto:${data.email}`}>{data.email}</a>
+            <a href={`mailto:${business.email}`}>{business.email}</a>
           </li>
         </ul>
         <div className="border-s-2 border-sky-600">
@@ -28,22 +30,22 @@ export default function Footer(company_info) {
         </div>
         <div className="border-s-2 border-sky-600"></div>
         <div className="border-s-2 border-sky-600 flex flex-col justify-evenly ps-10">
-          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Instagram/${data.instagram}`}>
+          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Instagram/${business.instagram}`}>
             Instagram
           </a>
-          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Twitter/${data.twitter}`}>
+          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Twitter/${business.twitter}`}>
             Twitter
           </a>
-          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Facebook/${data.facebook}`}>
+          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Facebook/${business.facebook}`}>
             Facebook
           </a>
-          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Youtube/${data.youtube}`}>
+          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Youtube/${business.youtube}`}>
             Youtube
           </a>
-          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Pinterest/${data.pinterest}`}>
+          <a className="hover:text-red-600 transition-all ease-in-out duration-300" href={`#Pinterest/${business.pinterest}`}>
             Pinterest
           </a>
-          <span>{data.instagram}</span>
+          <span>{business.instagram}</span>
         </div>
       </div>
         <Link

@@ -6,36 +6,53 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Card from "./common/components/Card/Card";
 import Image from "next/image";
+
 async function getData() {
+
   const res = await fetch(
     "http://localhost:1337/api/cars/?populate=*&sort=featured:desc"
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  try {
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    
+    const jsonData = await res.json();
+    
+    return jsonData.data || []; // Ensure that we return an array, either the fetched data or an empty array.
+    
+  } catch (error) {
+    console.log("ERROR: ", error)    
+  }  
+  
+  return []; // Ensure that we return an array, either the fetched data or an empty array.
 
-  const jsonData = await res.json();
-  return jsonData.data || []; // Ensure that we return an array, either the fetched data or an empty array.
 }
 
 function formattedPrice(price) {
+
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(price);
+
 }
 
 export default function Page() {
-  const [cars, setCars] = useState([]);
-  const featuredCars = cars.filter((car) => car.attributes.featured === true);
+
+  const [getCars, setCars] = useState([]);
+
+  const featuredCars = getCars.filter(car => car.attributes.featured) || [];
+
   useEffect(() => {
     async function fetchCars() {
-      try {
-        const fetchedCars = await getData();
+      const fetchedCars = await getData();
+      if (fetchedCars) {
         setCars(fetchedCars);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
+      } else {
+        console.error("No data available");
+        // Optionally set an error state and render an error message in the UI
       }
     }
 
@@ -45,6 +62,12 @@ export default function Page() {
   const goToItemPage = (id) => {
     router.push(`/item/${id}`);
   };
+
+  if (getCars.length === 0) {
+    return <p>No cars available.</p>; // Render this or a similar message when there are no cars
+  }
+
+
 
   return (
     <main className="">
