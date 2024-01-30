@@ -26,8 +26,8 @@ export default function Navbar({data}) {
         </Link>
         <NavItems className={`flex space-x-3`} />
         <a
-          className="mx-auto md:ms-auto md:me-0 block text-2xl p-2 px-3 md:p-4 bg-sky-700 md:bg-transparent rounded-full font-extrabold md:hover:bg-sky-700 transition-all duration-150"
-          href={`tel:${business.phone || ''}`} // Use an empty string as a fallback
+          className="mx-auto md:ms-auto md:me-0 block text-2xl p-2 px-3 md:p-4 bg-sky-700 md:bg-transparent max-md:rounded-full font-extrabold md:hover:bg-sky-700  transition-all duration-150"
+          href={`tel:${data.phone}`}
         >
           {formattedPhone(business.phone)}
         </a>

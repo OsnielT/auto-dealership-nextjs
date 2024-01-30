@@ -81,25 +81,33 @@ export default function Page() {
             const mileageFormatted = new Intl.NumberFormat("en-US").format(
               Car_Features.mileage
             );
-
+            console.log("car: ", car);
             return (
-              <div className={`panel  text-slate-100 bg-sky-800 overflow-hidden shadow-sm sm:flex-row flex-col items-stretch flex ${idx == 0 ? "active" : ""}`}>
+              <div
+                className={`panel  text-slate-100 bg-sky-800 overflow-hidden shadow-sm sm:flex-row flex-col items-stretch flex ${
+                  idx == 0 ? "active" : ""
+                }`}
+              >
                 <div className={`w-full lg:w-1/2 h-full p-4 sm:p-0`}>
-                 
-                    <Image
-                      className="rounded-lg sm:rounded-none object-cover w-full h-full sm:h-[400px] md:h-[520px] lg:h-full    "
-                      src={`http://localhost:1337${url}`}
-                      width={800}
-                      height={800}
-                      loading="lazy"
-                      full
-                      alt={Title}
-                    />
-              
+                  <Image
+                    className="rounded-lg sm:rounded-none object-cover w-full h-full sm:h-[400px] md:h-[520px] lg:h-full    "
+                    src={`http://localhost:1337${url}`}
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    full
+                    alt={Title}
+                  />
                 </div>
-                <div className={`p-5 lg:p-10 px-5 lg:px-14 sm:p-6 flex flex-col text-left w-full lg:w-1/2 sm:w-[300px] h-full sm:absolute lg:relative sm:justify-center sm:bg-sky-800 lg:bg-transparent sm:bg-opacity-75 sm:backdrop-blur-sm lg:backdrop-blur-none `}>
-                  <span className={`text-2xl sm:text-xl lg:text-2xl font-bold`}>{Title}</span>
-                  <span className={`text-4xl sm:text-3xl lg:text-4xl font-light py-8 sm:py-4`}>
+                <div
+                  className={`p-5 lg:p-10 px-5 lg:px-14 sm:p-6 flex flex-col text-left w-full lg:w-1/2 sm:w-[300px] h-full sm:absolute lg:relative sm:justify-center sm:bg-sky-800 lg:bg-transparent sm:bg-opacity-75 sm:backdrop-blur-sm lg:backdrop-blur-none `}
+                >
+                  <span className={`text-2xl sm:text-xl lg:text-2xl font-bold`}>
+                    {Title}
+                  </span>
+                  <span
+                    className={`text-4xl sm:text-3xl lg:text-4xl font-light py-8 sm:py-4`}
+                  >
                     {formattedPrice(car.attributes.price)}
                   </span>
                   <ul className="text-lg">
@@ -124,20 +132,41 @@ export default function Page() {
                       {Car_Features.horsepower}
                     </li>
                   </ul>
-                  <Link className="border border-white font-bold bg-sky-800 block hover:bg-sky-600 hover:border-sky-600 transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 sm:w-2/4 cursor-pointer" href={`/`}>Learn More</Link>
+                  <Link
+                    className="border border-white font-bold bg-sky-800 block hover:bg-sky-600 hover:border-sky-600 transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 sm:w-2/4 cursor-pointer"
+                    href={`/vehicle/${car.id}`}
+                  >
+                    Learn More
+                  </Link>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-<section className="bg-sky-600 p-14 border-b-8 border-sky-500">
-  <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">You wanna search for something? </p>
-  <form className="w-full lg:w-6/12 flex gap-4 mx-auto" method="post" action="">
-    <input className="p-4 px-7 rounded-lg w-full border-4 focus:border-sky-500 focus:outline-none hover:border-sky-500 transition-all duration-150" type="text" name="search" placeholder="Search Make, Model, or Keyword" />
-    <input className="p-4 px-6 rounded-lg  text-lg font-bold cursor-pointer border-2 border-sky-100 hover:border-sky-500 hover:bg-sky-500 transition-all duration-150 text-white" value="Search" name="submit" type="submit"/>
-  </form>
-</section>
+      <section className="bg-sky-600 p-14 border-b-8 border-sky-500">
+        <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">
+          You wanna search for something?{" "}
+        </p>
+        <form
+          className="w-full lg:w-6/12 flex gap-4 mx-auto"
+          method="post"
+          action=""
+        >
+          <input
+            className="p-4 px-7 rounded-lg w-full border-4 focus:border-sky-500 focus:outline-none hover:border-sky-500 transition-all duration-150"
+            type="text"
+            name="search"
+            placeholder="Search Make, Model, or Keyword"
+          />
+          <input
+            className="p-4 px-6 rounded-lg  text-lg font-bold cursor-pointer border-2 border-sky-100 hover:border-sky-500 hover:bg-sky-500 transition-all duration-150 text-white"
+            value="Search"
+            name="submit"
+            type="submit"
+          />
+        </form>
+      </section>
       <section className="inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-4 w-full p-10 mx-auto">
         {cars.map((car) => {
           const carouselItems =
