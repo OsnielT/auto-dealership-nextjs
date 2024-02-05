@@ -4,11 +4,10 @@ import NavItems from "../NavItems/NavItems";
 
 
 export default function Footer({data}) {
-  if(data){
-    const business = data.children.attributes;
-  }
 
-  return (
+  const business = data.attributes;
+
+  return business && (
     <footer className="text-white bg-sky-700 space-x-10 p-5 pt-9 px-10 justify-center align-middle content-center text-center ">
 
       <div className="inline-grid grid-cols-4 gap-4 w-full px-10 mx-auto">

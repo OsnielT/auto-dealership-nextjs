@@ -81,7 +81,6 @@ export default function Page() {
             const mileageFormatted = new Intl.NumberFormat("en-US").format(
               Car_Features.mileage
             );
-            console.log("car: ", car);
             return (
               <div
                 className={`panel  text-slate-100 bg-sky-800 overflow-hidden shadow-sm sm:flex-row flex-col items-stretch flex ${
@@ -168,7 +167,8 @@ export default function Page() {
         </form>
       </section>
       <section className="inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-4 w-full p-10 mx-auto">
-        {cars.map((car) => {
+        
+        {getCars && getCars.map((car) => {
           const carouselItems =
             car.attributes?.car_Image?.data?.map((image) => ({
               image: `http://localhost:1337${image.attributes.url}`,

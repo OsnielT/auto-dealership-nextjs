@@ -3,9 +3,9 @@ import NavItems from "../NavItems/NavItems";
 
 export default function Navbar({data}) {
 
-  console.log("company_info: ", data)
-
-  const business = data && data.children && data.children.attributes ? data.children.attributes : {};
+  
+  const business = data ? data.attributes : {};
+  console.log("company_info: ", business)
 
   const formattedPhone = (number) => {
     if (!number) return "No Phone"; // Return a default message if the phone number is not provided
