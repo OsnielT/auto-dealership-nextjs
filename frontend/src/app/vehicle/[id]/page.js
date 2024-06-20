@@ -63,15 +63,16 @@ export default function Page({ params: { id } }) {
     mpg,
     transmission,
   } = car.Car_Features;
-  console.log(car.Car_Features);
+
   return (
     <main>
-      <div className=" w-full bg-slate-200 p-8 rounded-lg">
+      <div className=" w-full p-8 rounded-lg">
         <div className="flex flex-row gap-8">
           <div className="max-md:w-2/3 w-6/12 relative">
             {/* Main Image */}
             <div className="relative">
               <Image
+              unoptimized
                 draggable={false}
                 className="rounded w-full"
                 src={`http://localhost:1337${car_Image.data[currentImageIndex].attributes.url}`}
@@ -100,6 +101,7 @@ export default function Page({ params: { id } }) {
                   key={`car-image-${idx}`}
                   onClick={() => setMainImage(idx)}
                   draggable={false}
+                  unoptimized
                   className="rounded opacity-60 hover:opacity-100 transition-opacity duration-150 cursor-pointer w-full border border-cyan-800"
                   src={`http://localhost:1337${image.attributes.url}`}
                   width={100}

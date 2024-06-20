@@ -16,9 +16,9 @@ export default async function Page() {
   const data = await getData();
   const {heading, body} = data.attributes;
   const markup = { __html: body };
-  console.log()
+
   return (
-  <main className={`container w-1/2 mx-auto p-9 text-black`}>
+  <main className={`container w-9/12 mx-auto p-9 text-black h-full`}>
     <div className={styles["body"]} dangerouslySetInnerHTML={markup}/>
   </main>
   );

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", // This sets the base directory for relative paths
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "@/common/*": ["./src/app/common/*"]
+    },
+    "include": ["src/**/*", "next-env.d.ts"],
+    "exclude": ["node_modules"]
   }
 }

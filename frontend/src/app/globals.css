@@ -64,18 +64,7 @@ body {
 .swiper-slide {float: right;}
 /* .swiper-slide.swiper-slide-active,
 .swiper-slide.swiper-slide-next {display: block;} */
-.card{
-  top: 0;
-  transition: all .3s ease;
-  /* box-shadow: -1px 1px 7px rgba(52, 52, 52, 32%); */
-  cursor: pointer;
-}
 
-.card:hover{
-  box-shadow: -1px 10px 13px rgba(52, 52, 52, 32%);
-
-  top: -5px;
-}
 
 .description ul {
 
@@ -105,4 +94,22 @@ body {
   opacity: 1;
   position: relative;
   left: unset;
+}
+
+
+/* 
+
+Animations & Keyframes 
+
+*/
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
