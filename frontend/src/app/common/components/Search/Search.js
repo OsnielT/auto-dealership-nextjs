@@ -88,7 +88,7 @@ const Search = () => {
         <input
           className={`${
             showResults && "relative z-[9999]"
-          } p-4 px-7 searchField rounded-lg w-full border-4 focus:border-sky-500 focus:outline-none hover:border-sky-500 transition-all duration-150`}
+          } p-4 px-7 searchField rounded-lg w-full border-4 focus:border-primary focus:outline-none hover:border-primary transition-all duration-150`}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

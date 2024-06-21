@@ -13,7 +13,7 @@ export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
 
   return (
     <div
-      className={`panel relative text-slate-100 bg-sky-700 overflow-hidden shadow-sm sm:flex-row flex-col items-center flex ${
+      className={`panel relative text-secondary bg-primary overflow-hidden shadow-sm sm:flex-row flex-col items-center flex ${
         currentSlideIdx === idx ? "active" : ""
       }`}
     >
@@ -63,7 +63,7 @@ export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
           </li>
         </ul>
         <Link
-          className="border border-white font-bold bg-transparent block hover:bg-sky-600 hover:border-sky-600 transition-all duration-150  py-3 mt-5 rounded-lg text-center w-1/4 sm:w-2/4 cursor-pointer"
+          className="border cursor-pointer border-secondary font-bold bg-primary block hover:bg-secondary hover:text-primary hover:border-primary transition-all duration-150 py-3 mt-5 rounded-lg text-center w-1/4 sm:w-2/4"
           href={`/vehicle/${car.id}`}
         >
           Learn More
