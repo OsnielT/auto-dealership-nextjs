@@ -12,9 +12,16 @@ const hexToRgb = (hex) => {
   return `${r}, ${g}, ${b}`;
 };
 
+const getColorFromLocalStorage = (key, defaultColor) => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem(key) || defaultColor;
+  }
+  return defaultColor;
+};
+
 export const ThemeProvider = ({ children }) => {
-  const [primaryColor, setPrimaryColor] = useState('#3490dc');
-  const [secondaryColor, setSecondaryColor] = useState('#ffffff');
+  const [primaryColor, setPrimaryColor] = useState(getColorFromLocalStorage('primaryColor', '#ffffff'));
+  const [secondaryColor, setSecondaryColor] = useState(getColorFromLocalStorage('secondaryColor', '#ffffff'));
 
   useEffect(() => {
     document.documentElement.style.setProperty('--color-primary', primaryColor);
@@ -23,8 +30,15 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.style.setProperty('--color-secondary-rgb', hexToRgb(secondaryColor));
   }, [primaryColor, secondaryColor]);
 
+  const saveColorsToLocalStorage = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('primaryColor', primaryColor);
+      localStorage.setItem('secondaryColor', secondaryColor);
+    }
+  };
+
   return (
-    <ThemeContext.Provider value={{ primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor }}>
+    <ThemeContext.Provider value={{ primaryColor, setPrimaryColor, secondaryColor, setSecondaryColor, saveColorsToLocalStorage }}>
       {children}
     </ThemeContext.Provider>
   );

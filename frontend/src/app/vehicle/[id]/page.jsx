@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import LargeCarousel from "@/components/LargeCarousel/LargeCarousel";
+import NextBreadcrumb from "@/app/common/components/NextBreadcrub/NextBreadcrumb";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 async function getData(vehicleId) {
   const res = await fetch(
     `http://localhost:1337/api/cars/${vehicleId}/?populate=*`,
@@ -30,13 +32,27 @@ export default function Page({ params: { id } }) {
     ); // Show loading state while data is being fetched
 
   const { Title, car_Image } = car;
-  const {drivetrain,exterior_color,fuel_type,horsepower,interior_color,mileage,mpg,transmission,} = car.Car_Features;
-  const mileageFormatted = new Intl.NumberFormat("en-US").format(
-    mileage
-  );
+  const {
+    drivetrain,
+    exterior_color,
+    fuel_type,
+    horsepower,
+    interior_color,
+    mileage,
+    mpg,
+    transmission,
+  } = car.Car_Features;
+  const mileageFormatted = new Intl.NumberFormat("en-US").format(mileage);
   return (
     <main>
       <div className=" w-full p-8 rounded-lg">
+        <NextBreadcrumb
+          homeElement={"Home"}
+          separator={<FaChevronRight size={10} />}
+          containerClasses="flex py-2 rounded items-center bg-slate-100 mb-5 text-sm"
+          listClasses=" mx-2 "
+          capitalizeLinks
+        />
         <div className="flex flex-row gap-8">
           <div className="max-md:w-2/3 w-6/12 relative">
             {/* Main Image */}
