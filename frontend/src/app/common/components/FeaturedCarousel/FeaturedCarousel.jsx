@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SlideButton from "./slideButton";
+import SlideButton from "@/components/FeaturedCarousel/SlideButton";
 import FeaturedCarouselItem from "./FeaturedCarouselItem";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 

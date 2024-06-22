@@ -2,8 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".", // This sets the base directory for relative paths
     "paths": {
-      "@/*": ["./src/*"], // This maps the "@" alias to your "src" directory
-      "@/common/*": ["./src/app/common/*"]
+      "@/*": ["./src/*"],
+      "@/common/*": ["./src/app/common/*"],
+      "@/components/*": ["./src/app/common/components/*"],
+      "@/hooks/*": ["./src/app/common/hooks/*"],
+      "@/utils/*": ["./src/app/common/utils/*"],
+      "@/context/*": ["./src/context/*"]
     },
     "lib": [
       "dom",
@@ -12,7 +16,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -32,7 +36,8 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

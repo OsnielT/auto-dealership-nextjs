@@ -1,4 +1,7 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,16 +10,28 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       colors: {
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
+        primary: {
+          DEFAULT: 'rgba(var(--color-primary-rgb), <alpha-value>)',
+        },
+        secondary: {
+          DEFAULT: 'rgba(var(--color-secondary-rgb), <alpha-value>)',
+        },
       },
     },
   },
-  plugins: [],
-}
+  plugins: [
+    plugin(function({ addUtilities }) {
+      const newUtilities = {
+        '.bg-primary': {
+          backgroundColor: 'rgba(var(--color-primary-rgb), var(--tw-bg-opacity, 1))',
+        },
+        '.bg-secondary': {
+          backgroundColor: 'rgba(var(--color-secondary-rgb), var(--tw-bg-opacity, 1))',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
+  ],
+};

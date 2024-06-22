@@ -3,9 +3,13 @@
     "baseUrl": ".", // This sets the base directory for relative paths
     "paths": {
       "@/*": ["./src/*"],
-      "@/common/*": ["./src/app/common/*"]
-    },
-    "include": ["src/**/*", "next-env.d.ts"],
-    "exclude": ["node_modules"]
-  }
+      "@/common/*": ["./src/app/common/*"],
+      "@/components/*": ["./src/app/common/components/*"],
+      "@/hooks/*": ["./src/app/common/hooks/*"],
+      "@/utils/*": ["./src/app/common/utils/*"],
+      "@/context/*": ["./src/context/*"]
+    }
+  },
+  "include": ["src/**/*", "next-env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

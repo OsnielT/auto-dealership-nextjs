@@ -10,7 +10,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`${className} card z-0 shadow hover:shadow-xl top-0 hover:-top-2 bg-white transition-all ease-in-out hover:bg-slate-200 overflow-hidden w-full h-full relative rounded-2xl flex flex-col justify-between ${
+      className={`${className} card z-0 shadow hover:shadow-xl top-0 hover:-top-2 bg-white transition-all ease-in-out overflow-hidden w-full h-full relative rounded-2xl flex flex-col justify-between ${
         car.attributes.featured == true ? "featured-card" : null
       } `}
       key={car.id}

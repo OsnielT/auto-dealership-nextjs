@@ -24,11 +24,11 @@ export default function Page() {
     <main className="">
        
       <div className={` text-center bg-white`}>
-        <div className="bg-white banner overflow-hidden flex flex-col  justify-center gap-5 ">
+        <div className="bg-black banner overflow-hidden flex flex-col  justify-center gap-5 ">
           <FeaturedCarousel featuredCars={featuredCars} />
         </div>
       </div>
-      <section className="bg-primary opacity-90 p-14">
+      <section className="bg-primary p-14">
         <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">
           You wanna search for something?
         </p>

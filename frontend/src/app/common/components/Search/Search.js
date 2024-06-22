@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import debounce from "lodash/debounce"; // Import debounce from lodash
 import Image from "next/image";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronRight } from 'react-icons/fa';
 const Search = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
