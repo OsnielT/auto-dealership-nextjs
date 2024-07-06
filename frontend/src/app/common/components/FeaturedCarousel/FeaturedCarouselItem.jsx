@@ -30,7 +30,7 @@ export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
         />
       </div>
       <div
-        className={`p-5 lg:p-10 px-5 lg:px-14 sm:p-6 flex flex-col text-left w-full lg:w-1/2 sm:w-[300px] h-full sm:absolute lg:relative sm:justify-center sm:backdrop-blur-sm lg:backdrop-blur-none `}
+        className={`p-5 lg:p-1 px-5 lg:px-14 sm:px-12 flex flex-col text-left w-full lg:w-1/2 sm:w-[350px] h-full bg-primary/50  lg:bg-transparent sm:absolute lg:relative sm:justify-center sm:backdrop-blur-sm lg:backdrop-blur-none `}
       >
         <span className={`text-2xl sm:text-xl lg:text-4xl font-medium`}>
           {Title}

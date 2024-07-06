@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import SlideButton from "@/components/FeaturedCarousel/SlideButton";
 import FeaturedCarouselItem from "./FeaturedCarouselItem";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function FeaturedCarousel({ featuredCars }) {
   const [currentSlideIdx, setSlideIdx] = useState(0);
   const slidesLength = featuredCars.length;
+  const handlePrevClick = () => {
+    setSlideIdx((prevIdx) => (prevIdx - 1 + slidesLength) % slidesLength);
+  };
 
+  const handleNextClick = () => {
+    setSlideIdx((prevIdx) => (prevIdx + 1) % slidesLength);
+  };
   return (
     <div className="relative">
       {featuredCars &&
@@ -21,9 +27,18 @@ export default function FeaturedCarousel({ featuredCars }) {
         })}
       {slidesLength > 1 && (
         // Display Pagination
-        <div className="absolute boreder top-1/2 -translate-y-1/2 left-0 w-full p-2 flex gap-2 justify-between items-center">
-          <SlideButton className="px-1 py-1" isDisabled={currentSlideIdx > 0}  action={()=>setSlideIdx(currentSlideIdx-1)} label ={<FaChevronLeft />}/> 
-          <SlideButton className="px-1 py-1" isDisabled={currentSlideIdx < slidesLength-1} action={()=>setSlideIdx(currentSlideIdx+1)} label={<FaChevronRight />} /> 
+
+        <div className="absolute boreder bottom-0 right-0 p-4 flex gap-4 justify-between items-center">
+          <SlideButton
+            className="px-2 py-2"
+            action={() => handlePrevClick()}
+            label={<FaChevronLeft color="white" />}
+          />
+          <SlideButton
+            className="px-2 py-2"
+            action={() => handleNextClick()}
+            label={<FaChevronRight color="white" />}
+          />
         </div>
       )}
     </div>

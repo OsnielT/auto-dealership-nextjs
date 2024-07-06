@@ -22,11 +22,11 @@ export default function Navbar() {
           <NavItems className="flex space-x-6 text-secondary" />
         </div>
         <a
-          className="flex items-center lg:text-2xl p-2 md:p-0 bg-secondary md:bg-transparent rounded-full md:rounded-none  transition-all duration-150"
+          className="flex items-center text-primary md:text-secondary lg:text-2xl p-2 md:p-0 bg-secondary md:bg-transparent rounded-full md:rounded-none  transition-all duration-150"
           href={`tel:${phone}`}
           aria-label={`Call us at ${formattedPhone(phone)}`}
         >
-          <FaPhone className="mr-2 text-secondary" />
+          <FaPhone className="mr-2 " />
           {formattedPhone(phone)}
         </a>
       </nav>

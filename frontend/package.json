@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faceless-ui/collapsibles": "^1.1.5",
     "@phosphor-icons/react": "^2.0.15",
     "autoprefixer": "10.4.15",
     "lodash": "^4.17.21",

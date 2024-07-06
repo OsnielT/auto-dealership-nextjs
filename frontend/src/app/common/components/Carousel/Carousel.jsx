@@ -42,13 +42,13 @@ export default function Carousel({ items }) {
         className={`${styles["btn-wrapper"]} mt-2 flex justify-between absolute left-1/2 top-1/2 `}
       >
         <button
-          className="prev text-white text-opacity-60 hover:scale-105 hover:bg-slate-100 hover:text-black transition-all duration-300 font-extrabold ease-in-out rounded-full"
+          className="prev text-white hover:scale-105 hover:bg-slate-100 hover:text-black transition-all duration-300 font-extrabold ease-in-out rounded-full"
           onClick={goPrev}
         >
           <FaChevronCircleLeft size={24} />
         </button>
         <button
-          className="next text-white text-opacity-60 hover:scale-105 hover:bg-slate-100 hover:text-black transition-all duration-300 font-extrabold ease-in-out rounded-full"
+          className="next text-white hover:scale-105 hover:bg-slate-100 hover:text-black transition-all duration-300 font-extrabold ease-in-out rounded-full"
           onClick={goNext}
         >
           <FaChevronCircleRight size={24} />

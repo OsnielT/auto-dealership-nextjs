@@ -4,17 +4,12 @@ import Card from "@/common/components/Card/Card";
 import Search from "@/common/components/Search/Search";
 import FeaturedCarousel from "@/common/components/FeaturedCarousel/FeaturedCarousel";
 import useFetchCars from "@/common/hooks/useFetchCars";
-import {formattedPrice} from "@/common/hooks/formatters"; 
+import { formattedPrice } from "@/common/hooks/formatters";
 
 export default function Page() {
-
   const cars = useFetchCars();
 
   const featuredCars = cars.filter((car) => car.attributes.featured) || [];
-
-  const goToItemPage = (id) => {
-    router.push(`/item/${id}`);
-  };
 
   if (cars.length === 0) {
     return <p>No cars available.</p>; // Render this or a similar message when there are no cars
@@ -22,7 +17,6 @@ export default function Page() {
 
   return (
     <main className="">
-       
       <div className={` text-center bg-white`}>
         <div className="bg-black banner overflow-hidden flex flex-col  justify-center gap-5 ">
           <FeaturedCarousel featuredCars={featuredCars} />
@@ -32,7 +26,6 @@ export default function Page() {
         <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">
           You wanna search for something?
         </p>
-
         <Search />
       </section>
       <section className="inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-4 w-full p-10 mx-auto">
@@ -59,4 +52,3 @@ export default function Page() {
     </main>
   );
 }
-
