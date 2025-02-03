@@ -4,7 +4,8 @@
   "info": {
     "singularName": "brand",
     "pluralName": "brands",
-    "displayName": "Brand"
+    "displayName": "Brand",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +16,21 @@
       "type": "string"
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "cars": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::car.car",
       "mappedBy": "brand"
+    },
+    "test": {
+      "type": "string"
     }
   }
 }
