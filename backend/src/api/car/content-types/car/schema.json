@@ -29,14 +29,6 @@
       "repeatable": false,
       "component": "car-details.car-features"
     },
-    "Body": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
     "price": {
       "type": "decimal"
     },
