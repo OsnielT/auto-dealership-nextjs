@@ -1,20 +1,19 @@
-
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 async function getData() {
   try {
     const res = await fetch(
-      "http://localhost:1337/api/company-information/?populate=*"
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/company-information/?populate=*`
     );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      throw new Error('Failed to fetch data');
     }
 
     const jsonData = await res.json();
     return jsonData.data || [];
   } catch (error) {
-    console.log("ERROR: ", error);
+    console.log('ERROR: ', error);
     return []; // Return an empty array in case of error
   }
 }
