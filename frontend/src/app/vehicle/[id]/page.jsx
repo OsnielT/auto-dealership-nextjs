@@ -1,25 +1,25 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import LargeCarousel from "@/components/LargeCarousel/LargeCarousel";
-import NextBreadcrumb from "@/app/common/components/NextBreadcrub/NextBreadcrumb";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+'use client';
+import NextBreadcrumb from '@/app/common/components/NextBreadcrub/NextBreadcrumb';
+import { formattedPrice } from '@/app/common/hooks/formatters';
+import LargeCarousel from '@/components/LargeCarousel/LargeCarousel';
 import {
-  CollapsibleGroup,
   Collapsible,
-  CollapsibleToggler,
   CollapsibleContent,
-} from "@faceless-ui/collapsibles";
-import { formattedPrice } from "@/app/common/hooks/formatters";
+  CollapsibleGroup,
+  CollapsibleToggler,
+} from '@faceless-ui/collapsibles';
+import { useEffect, useState } from 'react';
+import { FaChevronRight } from 'react-icons/fa';
 
-import FinancialDetailsByPrice from "@/app/common/components/FinancialDetailsByPrice/FinancialDetailsByPrice";
+import FinancialDetailsByPrice from '@/app/common/components/FinancialDetailsByPrice/FinancialDetailsByPrice';
 async function getData(vehicleId) {
   const res = await fetch(
-    `http://localhost:1337/api/cars/${vehicleId}/?populate=*`,
-    { cache: "force-cache" }
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/cars/${vehicleId}/?populate=*`,
+    { cache: 'force-cache' }
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error('Failed to fetch data');
   }
 
   const jsonData = await res.json();
@@ -51,13 +51,13 @@ export default function Page({ params: { id } }) {
     mpg,
     transmission,
   } = car.Car_Features;
-  const mileageFormatted = new Intl.NumberFormat("en-US").format(mileage);
+  const mileageFormatted = new Intl.NumberFormat('en-US').format(mileage);
 
   return (
     <main>
       <div className=" w-full p-8 rounded-lg">
         <NextBreadcrumb
-          homeElement={"Home"}
+          homeElement={'Home'}
           separator={<FaChevronRight size={10} />}
           containerClasses="flex py-3 px-3 rounded items-center bg-primary/10 mb-5 text-sm"
           listClasses=" mx-2 "
@@ -90,7 +90,10 @@ export default function Page({ params: { id } }) {
                     />
                   </CollapsibleContent>
                 </Collapsible>
-                <Collapsible transCurve="ease-in" transTime={150}>
+                <Collapsible
+                  transCurve="ease-in"
+                  transTime={150}
+                >
                   <CollapsibleToggler className=" py-3 rounded-t-lg border-b-2 border-b-primary/50 w-full  text-start">
                     <p className="text-xl ">Features</p>
                   </CollapsibleToggler>
@@ -165,7 +168,6 @@ export default function Page({ params: { id } }) {
                           </dd>
                         </div>
                       </dl>
-
                     </div>
                   </CollapsibleContent>
                 </Collapsible>
