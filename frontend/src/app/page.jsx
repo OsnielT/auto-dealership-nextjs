@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Card from "@/common/components/Card/Card";
-import Search from "@/common/components/Search/Search";
-import FeaturedCarousel from "@/common/components/FeaturedCarousel/FeaturedCarousel";
-import useFetchCars from "@/common/hooks/useFetchCars";
-import { formattedPrice } from "@/common/hooks/formatters";
+import Card from '@/common/components/Card/Card';
+import FeaturedCarousel from '@/common/components/FeaturedCarousel/FeaturedCarousel';
+import Search from '@/common/components/Search/Search';
+import { formattedPrice } from '@/common/hooks/formatters';
+import useFetchCars from '@/common/hooks/useFetchCars';
 
 export default function Page() {
   const cars = useFetchCars();
 
-  const featuredCars = cars.filter((car) => car.attributes.featured) || [];
+  const featuredCars = cars.filter((car) => car?.featured) || [];
 
   if (cars.length === 0) {
     return <p>No cars available.</p>; // Render this or a similar message when there are no cars
@@ -32,10 +32,10 @@ export default function Page() {
         {cars &&
           cars.map((car) => {
             const carouselItems =
-              car.attributes?.car_Image?.data?.map((image) => ({
-                image: `http://localhost:1337${image.attributes.url}`,
-                alt: image?.attributes?.name || "Car Image",
-                description: "", // Assuming there's no specific description for images in the provided data
+              car?.car_Image?.map((image) => ({
+                image: `${process.env.NEXT_PUBLIC_BASE_URL}${image?.url}`,
+                alt: image?.name || 'Car Image',
+                description: '', // Assuming there's no specific description for images in the provided data
               })) || [];
 
             return (
@@ -43,7 +43,7 @@ export default function Page() {
                 className="z-0 relative"
                 car={car}
                 carouselItems={carouselItems}
-                formattedPrice={formattedPrice(car.attributes.price)}
+                formattedPrice={formattedPrice(car?.price || 0)}
                 key={car.id}
               />
             );

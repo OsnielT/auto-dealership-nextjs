@@ -13,24 +13,30 @@ import { FaChevronRight } from 'react-icons/fa';
 
 import FinancialDetailsByPrice from '@/app/common/components/FinancialDetailsByPrice/FinancialDetailsByPrice';
 async function getData(vehicleId) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/cars/${vehicleId}/?populate=*`,
-    { cache: 'force-cache' }
-  );
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/cars/${vehicleId}/?populate=*`,
+      { cache: 'force-cache' }
+    );
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const jsonData = await res.json();
+    return jsonData.data || [];
+  } catch (error) {
+    console.error('Error fetching vehicle data:', error);
+    throw error; // Re-throw to handle in component
   }
-
-  const jsonData = await res.json();
-  return jsonData.data || [];
 }
 
 export default function Page({ params: { id } }) {
   const [car, setCar] = useState(null);
-
+  console.log('car id: ', id);
+  console.log('data ', car);
   useEffect(() => {
-    getData(id).then((data) => setCar(data.attributes));
+    getData(id).then((data) => setCar(data));
   }, [id]);
 
   if (!car)
@@ -70,7 +76,7 @@ export default function Page({ params: { id } }) {
               <LargeCarousel
                 carImages={car_Image}
                 alt={Title}
-                allImages={car_Image.data}
+                allImages={car_Image}
               />
             </div>
             <div className="bg-primary/10 p-4 rounded-xl mt-7">
@@ -80,15 +86,17 @@ export default function Page({ params: { id } }) {
                   transCurve="ease-in"
                   className="bg-primary/10"
                 >
-                  <CollapsibleToggler className=" py-3 rounded-t-lg border-b-2 border-b-primary/50 w-full text-start">
+                  {/* <CollapsibleToggler className=" py-3 rounded-t-lg border-b-2 border-b-primary/50 w-full text-start">
                     <p className="text-xl ">Details</p>
-                  </CollapsibleToggler>
-                  <CollapsibleContent className="px-4 bg-primary/10 rounded-b-lg mb-2">
-                    <div
-                      className="py-6"
-                      dangerouslySetInnerHTML={{ __html: car.Body }}
-                    />
-                  </CollapsibleContent>
+                  </CollapsibleToggler> */}
+                  {car?.Body && (
+                    <CollapsibleContent className="px-4 bg-primary/10 rounded-b-lg mb-2">
+                      <div
+                        className="py-6"
+                        dangerouslySetInnerHTML={{ __html: car.Body }}
+                      />
+                    </CollapsibleContent>
+                  )}
                 </Collapsible>
                 <Collapsible
                   transCurve="ease-in"

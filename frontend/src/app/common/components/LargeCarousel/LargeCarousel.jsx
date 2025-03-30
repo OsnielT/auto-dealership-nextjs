@@ -1,12 +1,7 @@
-import Image from "next/image";
-import React, { useState } from "react";
-import {
-  FaChevronCircleLeft,
-  FaChevronCircleRight,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
-import SmallThumbnail from "./SmallThumbnail";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import SmallThumbnail from './SmallThumbnail';
 
 export default function LargeCarousel({ carImages, allImages, alt }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -18,14 +13,14 @@ export default function LargeCarousel({ carImages, allImages, alt }) {
   // Function to show the next image
   const showNextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === carImages.data.length - 1 ? 0 : prevIndex + 1
+      prevIndex === carImages.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   // Function to show the previous image
   const showPrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? carImages.data.length - 1 : prevIndex - 1
+      prevIndex === 0 ? carImages.length - 1 : prevIndex - 1
     );
   };
 
@@ -36,7 +31,7 @@ export default function LargeCarousel({ carImages, allImages, alt }) {
           unoptimized
           draggable={false}
           className="rounded-xl w-100 object-cover h-100 "
-          src={`http://localhost:1337${carImages.data[currentImageIndex].attributes.url}`}
+          src={`${process.env.NEXT_PUBLIC_BASE_URL}${carImages[currentImageIndex].url}`}
           width={900}
           height={900}
           alt={`${alt}`}
@@ -67,7 +62,7 @@ export default function LargeCarousel({ carImages, allImages, alt }) {
             action={() => setMainImage(idx)}
             isActive={currentImageIndex === idx}
             alt={alt}
-            src={`http://localhost:1337${image.attributes.url}`}
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}${image.url}`}
           />
         ))}
       </div>
