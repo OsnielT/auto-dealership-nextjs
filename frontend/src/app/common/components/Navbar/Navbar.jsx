@@ -1,20 +1,23 @@
-"use client";
-import Link from "next/link";
-import React from "react";
-import NavItems from "../NavItems/NavItems";
-import useBusinessInfo from "@/common/hooks/useFetchBusinessInfo";
-import { formattedPhone } from "@/common/hooks/formatters";
-import { FaPhone } from "react-icons/fa";
+'use client';
+import { formattedPhone } from '@/common/hooks/formatters';
+import useBusinessInfo from '@/common/hooks/useFetchBusinessInfo';
+import Link from 'next/link';
+import { FaPhone } from 'react-icons/fa';
+import NavItems from '../NavItems/NavItems';
 
 export default function Navbar() {
   const business = useBusinessInfo();
 
-  const { phone = "" } = business?.attributes || {};
+  const { phone = '' } = business || {};
 
   return (
     <header className="sticky top-0 z-50 bg-primary shadow-lg">
       <nav className="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 md:py-0 text-secondary">
-        <Link className="text-3xl font-thin italic text-secondary" href="/" aria-label="Home">
+        <Link
+          className="text-3xl font-thin italic text-secondary"
+          href="/"
+          aria-label="Home"
+        >
           <span className="font-bold">A</span>uto
           <span className="font-bold">D</span>ealer
         </Link>

@@ -1,28 +1,32 @@
-"use client";
-import Link from "next/link";
-import React from "react";
-import NavItems from "../NavItems/NavItems";
-import useBusinessInfo from "@/common/hooks/useFetchBusinessInfo";
-import { capitalizeWords } from "@/common/hooks/formatters";
-import { FaInstagram, FaTwitter, FaFacebook, FaYoutube, FaPinterest } from 'react-icons/fa';
+'use client';
+import { capitalizeWords } from '@/common/hooks/formatters';
+import useBusinessInfo from '@/common/hooks/useFetchBusinessInfo';
+import {
+  FaFacebook,
+  FaInstagram,
+  FaPinterest,
+  FaTwitter,
+  FaYoutube,
+} from 'react-icons/fa';
+import NavItems from '../NavItems/NavItems';
 
 export default function Footer() {
   const business = useBusinessInfo();
   const {
-    name = "",
-    street_address_1 = "",
-    street_address_2 = "",
-    city = "",
-    state = "",
-    zip_code = "",
-    phone = "",
-    email = "",
-    instagram = "",
-    twitter = "",
-    facebook = "",
-    youtube = "",
-    pinterest = "",
-  } = business?.attributes || {};
+    name = '',
+    street_address_1 = '',
+    street_address_2 = '',
+    city = '',
+    state = '',
+    zip_code = '',
+    phone = '',
+    email = '',
+    instagram = '',
+    twitter = '',
+    facebook = '',
+    youtube = '',
+    pinterest = '',
+  } = business || {};
 
   return (
     business && (
@@ -35,10 +39,20 @@ export default function Footer() {
               {capitalizeWords(city)}, {state.toUpperCase()}, {zip_code}
             </p>
             <p className="mb-2">
-              <a href={`tel:${phone}`} className="text-secondary hover:text-primary">{phone}</a>
+              <a
+                href={`tel:${phone}`}
+                className="text-secondary hover:text-primary"
+              >
+                {phone}
+              </a>
             </p>
             <p>
-              <a href={`mailto:${email}`} className="text-secondary hover:text-primary">{email}</a>
+              <a
+                href={`mailto:${email}`}
+                className="text-secondary hover:text-primary"
+              >
+                {email}
+              </a>
             </p>
           </address>
           <nav className="mb-6 md:mb-0">
@@ -94,7 +108,8 @@ export default function Footer() {
         </div>
         <div className="mt-8 text-center border-t border-secondary pt-4">
           <p>
-            © {new Date().getFullYear()} {capitalizeWords(name)}. All rights reserved.
+            © {new Date().getFullYear()} {capitalizeWords(name)}. All rights
+            reserved.
           </p>
         </div>
       </footer>
