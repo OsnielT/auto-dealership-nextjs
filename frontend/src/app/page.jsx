@@ -5,14 +5,19 @@ import FeaturedCarousel from '@/common/components/FeaturedCarousel/FeaturedCarou
 import Search from '@/common/components/Search/Search';
 import { formattedPrice } from '@/common/hooks/formatters';
 import useFetchCars from '@/common/hooks/useFetchCars';
-
+import { TbCircleDotted } from 'react-icons/tb';
 export default function Page() {
   const cars = useFetchCars();
 
   const featuredCars = cars.filter((car) => car?.featured) || [];
 
-  if (cars.length === 0) {
-    return <p>No cars available.</p>; // Render this or a similar message when there are no cars
+  while (cars.length === 0) {
+    return (
+      <main className="w-screen h-screen flex text-center items-center justify-center text-5xl text-primary">
+        <p>Loading...</p>
+        <TbCircleDotted />
+      </main>
+    ); // Render this or a similar message when there are no cars
   }
 
   return (

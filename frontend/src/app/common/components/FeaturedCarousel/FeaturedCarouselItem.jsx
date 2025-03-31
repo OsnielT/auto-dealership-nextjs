@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { formattedPrice } from '../../hooks/formatters';
 
 export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
-  console.log('featured car: ', car);
   const { Title } = car;
   const { url } = car.car_Image[0];
   const { Car_Features } = car;
