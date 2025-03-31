@@ -30,7 +30,7 @@ export default function LargeCarousel({ carImages, allImages, alt }) {
         <Image
           unoptimized
           draggable={false}
-          className="rounded-xl w-100 object-cover h-100 "
+          className="rounded-xl w-100 object-cover h-[350px] lg:h-100 "
           src={`${process.env.NEXT_PUBLIC_BASE_URL}${carImages[currentImageIndex].url}`}
           width={900}
           height={900}
@@ -54,10 +54,11 @@ export default function LargeCarousel({ carImages, allImages, alt }) {
         </div>
       </div>
 
-      <div className="flex flex-col w-28 gap-4 pl-4">
+      <div className="flex md:flex-col w-28 gap-4 md:pl-4 pt-4 md:pt-0">
         {allImages.map((image, idx) => (
           <SmallThumbnail
             idx={idx}
+            key={`thumb-${idx}`}
             className="rounded-lg"
             action={() => setMainImage(idx)}
             isActive={currentImageIndex === idx}

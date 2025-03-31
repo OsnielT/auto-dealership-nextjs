@@ -69,9 +69,11 @@ export default function Page({ params: { id } }) {
           listClasses=" mx-2 "
           capitalizeLinks
         />
+        <h1 className="text-4xl mb-7 font-bold lg:hidden flex">{Title}</h1>
+
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full lg:w-7/12">
-            <div className="flex relative">
+            <div className="flex flex-col md:flex-row relative">
               {/* Main Image */}
               <LargeCarousel
                 carImages={car_Image}
@@ -79,7 +81,13 @@ export default function Page({ params: { id } }) {
                 allImages={car_Image}
               />
             </div>
-            <div className="bg-primary/10 p-4 rounded-xl mt-7">
+            <p className="my-5 lg:mt-3 lg:mb-8 text-2xl lg:hidden flex flex-col bg-primary/10 p-4 rounded-2xl">
+              Price:{' '}
+              <span className="text-4xl text-primary">
+                {formattedPrice(car.price | 0)}
+              </span>
+            </p>
+            <div className=" rounded-xl lg:mt-7">
               <CollapsibleGroup allowMultiple>
                 <Collapsible
                   transTime={150}
@@ -184,11 +192,15 @@ export default function Page({ params: { id } }) {
           </div>
 
           <div className="w-full lg:w-5/12">
-            <h1 className="text-4xl mb-7 font-bold">{Title}</h1>
-
-            <p className="mt-3 mb-8 text-2xl">
-              Price: {formattedPrice(car.price | 0)}
-            </p>
+            <div className="hidden lg:flex flex-col lg:mb-4">
+              <h1 className="text-4xl mb-4 font-bold">{Title}</h1>
+              <p className="mt-3 mb-4 text-2xl">
+                Price:{' '}
+                <span className="text-3xl text-primary">
+                  {formattedPrice(car.price | 0)}
+                </span>
+              </p>
+            </div>
 
             <FinancialDetailsByPrice carPrice={car.price} />
           </div>

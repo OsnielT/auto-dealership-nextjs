@@ -18,13 +18,13 @@ export default function Page() {
   return (
     <main className="">
       <div className={` text-center bg-white`}>
-        <div className="bg-black banner overflow-hidden flex flex-col  justify-center gap-5 ">
+        <div className="bg-black banner overflow-hidden flex flex-col justify-center gap-5 ">
           <FeaturedCarousel featuredCars={featuredCars} />
         </div>
       </div>
-      <section className="bg-primary p-14">
-        <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">
-          You wanna search for something?
+      <section className="bg-primary px-4 py-8 lg:p-14">
+        <p className="text-center text-white font-bol pb-4 text-3xl">
+          Looking for something?
         </p>
         <Search />
       </section>

@@ -18,18 +18,18 @@ export default function Card({
         <Carousel items={carouselItems} />
 
         <Link
-          className="px-4 w-full mx-auto inline-block"
+          className="px-4 w-full mx-auto inline-block pt-2"
           href={`vehicle/${car?.documentId}`}
         >
-          <p className="text-slate-950 font-extrabold car-title-elipse pt-4">
-            {car?.Title}
-          </p>
-          <p className="text-sky-950 my-3 text-2xl ">{formattedPrice}</p>
           <span
-            className={`bg-primary bg-opacity-20 text-secondary font-semibold py-2 mb-3 inline-block px-3 text-xs rounded-2xl`}
+            className={`bg-primary/20 text-primary font-normal py-[2px] px-[8px] inline-block text-xs rounded-2xl mb-2`}
           >
             {car?.used_status}
           </span>
+          <p className="text-slate-950 font-extrabold car-title-elipse">
+            {car?.Title}
+          </p>
+          <p className="text-primary my-3 text-3xl ">{formattedPrice}</p>
         </Link>
       </div>
 

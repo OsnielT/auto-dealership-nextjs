@@ -88,11 +88,11 @@ const Search = () => {
         <input
           className={`${
             showResults && 'relative z-[9999]'
-          } p-4 px-7 searchField rounded-lg w-full border-4 focus:border-primary focus:outline-none hover:border-primary transition-all duration-150`}
+          } p-4 px-7 searchField rounded-full w-full border-4 focus:border-primary focus:outline-none hover:border-primary transition-all duration-150`}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search Make, Model, or Keyword"
+          placeholder="Search for it here... Make, Model, or Keyword"
         />
         <div
           className={`fixed left-0 top-0 w-screen h-screen  ${
@@ -122,16 +122,16 @@ const Search = () => {
                         >
                           <div className="flex justify-between items-center">
                             {/* search results copy */}
-                            <div className="flex items-center justify-between gap-9">
+                            <div className="flex items-center justify-between gap-3">
                               <Image
-                                className="rounded-full aspect-square"
+                                className="rounded-md aspect-square object-cover"
                                 unoptimized
                                 src={`${process.env.NEXT_PUBLIC_BASE_URL}${vehicle?.car_Image[0]?.url}`}
-                                width={50}
-                                height={50}
+                                width={80}
+                                height={80}
                                 alt="car thumbnail"
                               />
-                              <div className="text-2xl">
+                              <div className="text-lg">
                                 {vehicle?.Title} - ${vehicle?.price}
                               </div>
                             </div>
