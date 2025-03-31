@@ -20,11 +20,11 @@ export default function Carousel({ items }) {
 
   return (
     <div className="relative">
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden h-[222px]">
         <Image
           src={items[currentIndex]?.image}
           alt={items[currentIndex]?.alt}
-          width={296}
+          width={300}
           height={222}
           loading="lazy"
           quality={100}
@@ -33,7 +33,7 @@ export default function Carousel({ items }) {
             minHeight: 222 + 'px',
           }}
           unoptimized
-          className="w-full"
+          className="w-full h-full"
         />
 
         <p>{items[currentIndex]?.description}</p>

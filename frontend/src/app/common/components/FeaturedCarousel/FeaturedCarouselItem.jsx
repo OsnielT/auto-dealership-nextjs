@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { formattedPrice } from '../../hooks/formatters';
 
 export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
-  console.log('featured car: ', car);
   const { Title } = car;
   const { url } = car.car_Image[0];
   const { Car_Features } = car;
@@ -13,14 +12,14 @@ export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
 
   return (
     <div
-      className={`panel relative text-secondary bg-primary/50 overflow-hidden shadow-sm sm:flex-row flex-col items-center flex ${
+      className={`panel relative text-secondary bg-primary/50 overflow-hidden shadow-sm sm:flex-row flex-col flex items-stretch ${
         currentSlideIdx === idx ? 'active' : ''
       }`}
     >
-      <div className={`w-full xl:w-1/2 h-full p-4 sm:p-0`}>
+      <div className={`w-full xl:w-1/2 p-4 sm:p-0 `}>
         <Image
           unoptimized
-          className="rounded-lg sm:rounded-none object-cover w-full h-full sm:h-[400px] md:h-[520px] lg:h-full    "
+          className="rounded-lg sm:rounded-none block object-cover w-full h-full"
           src={`${process.env.NEXT_PUBLIC_BASE_URL}${url}`}
           width={800}
           height={800}
@@ -30,7 +29,7 @@ export default function FeaturedCarouselItem({ currentSlideIdx, car, idx }) {
         />
       </div>
       <div
-        className={`p-5 lg:p-1 px-5 lg:px-14 sm:px-12 flex flex-col text-left w-full lg:w-1/2 sm:w-[350px] h-full bg-primary/50  lg:bg-transparent sm:absolute lg:relative sm:justify-center sm:backdrop-blur-sm lg:backdrop-blur-none `}
+        className={`p-5 lg:p-1 px-5 lg:px-14 sm:px-12 flex flex-col text-left w-full lg:w-1/2 sm:w-[350px] h-full lg:h-auto bg-primary/50 lg:bg-transparent sm:absolute lg:relative sm:justify-center sm:backdrop-blur-sm lg:backdrop-blur-none `}
       >
         <span className={`text-2xl sm:text-xl lg:text-4xl font-medium`}>
           {Title}

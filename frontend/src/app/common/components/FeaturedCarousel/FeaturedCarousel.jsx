@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SlideButton from "@/components/FeaturedCarousel/SlideButton";
-import FeaturedCarouselItem from "./FeaturedCarouselItem";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import SlideButton from '@/components/FeaturedCarousel/SlideButton';
+import { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import FeaturedCarouselItem from './FeaturedCarouselItem';
 
 export default function FeaturedCarousel({ featuredCars }) {
   const [currentSlideIdx, setSlideIdx] = useState(0);
@@ -22,6 +22,7 @@ export default function FeaturedCarousel({ featuredCars }) {
               currentSlideIdx={currentSlideIdx}
               idx={idx}
               car={car}
+              key={`featered-car-${idx}`}
             />
           );
         })}

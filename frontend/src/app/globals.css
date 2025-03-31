@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
@@ -23,7 +23,8 @@
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -49,22 +50,23 @@ body {
 /* Your other styles */
 
 .featured-card {
-  border: 3px solid var(--color-primary) !important;
+  /* border: 1px solid var(--color-primary) !important; */
   color: var(--color-primary);
 }
 
 .featured:after {
   background-color: var(--color-primary);
   content: "Featured";
-  font-style: italic;
+  /* font-style: italic; */
   display: block;
   color: #fff;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 8px;
+  top: 8px;
   padding: 2px 8px;
-  border-top-right-radius: .5rem;
-  border-bottom-left-radius: .5rem;
+  border-radius: 5rem;
+  /* border-top-right-radius: .8rem;
+  border-bottom-left-radius: .5rem; */
   font-size: 12px;
 }
 

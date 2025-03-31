@@ -1,5 +1,4 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
 
 export default function SmallThumbnail({
   idx,
@@ -11,13 +10,13 @@ export default function SmallThumbnail({
 }) {
   return (
     <Image
-      key={`car-image-${idx}`}
+      key={`car-thumb-image-${idx}`}
       onClick={action}
       draggable={false}
       unoptimized
       className={`${className} ${
-        isActive ? "opacity-100 border-primary border" : "opacity-60"
-      }  hover:opacity-100 transition-opacity duration-150 cursor-pointer w-full`}
+        isActive ? 'opacity-100  border-primary/60' : 'opacity-60'
+      }  hover:opacity-100 border-4 transition-opacity duration-150 cursor-pointer lg:w-full`}
       src={src}
       width={100}
       height={100}

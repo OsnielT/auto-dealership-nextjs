@@ -55,8 +55,14 @@ export default function Footer() {
               </a>
             </p>
           </address>
-          <nav className="mb-6 md:mb-0">
-            <NavItems className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-secondary" />
+          <nav className="mb-6 md:mb-0 flex h-full w-full">
+            <div className="flex flex-col justify-between items-stretch content-between h-full w-full">
+              <NavItems className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-secondary mt-0 mb-auto" />
+              <p className="mt-auto mb-0">
+                © {new Date().getFullYear()} {capitalizeWords(name)}. All rights
+                reserved.
+              </p>
+            </div>
           </nav>
           <div className="flex flex-row gap-2 align-middle items-center justify-center">
             <a
@@ -105,12 +111,6 @@ export default function Footer() {
               <FaPinterest size={24} />
             </a>
           </div>
-        </div>
-        <div className="mt-8 text-center border-t border-secondary pt-4">
-          <p>
-            © {new Date().getFullYear()} {capitalizeWords(name)}. All rights
-            reserved.
-          </p>
         </div>
       </footer>
     )

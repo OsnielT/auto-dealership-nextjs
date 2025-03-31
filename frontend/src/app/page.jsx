@@ -5,26 +5,31 @@ import FeaturedCarousel from '@/common/components/FeaturedCarousel/FeaturedCarou
 import Search from '@/common/components/Search/Search';
 import { formattedPrice } from '@/common/hooks/formatters';
 import useFetchCars from '@/common/hooks/useFetchCars';
-
+import { TbCircleDotted } from 'react-icons/tb';
 export default function Page() {
   const cars = useFetchCars();
 
   const featuredCars = cars.filter((car) => car?.featured) || [];
 
-  if (cars.length === 0) {
-    return <p>No cars available.</p>; // Render this or a similar message when there are no cars
+  while (cars.length === 0) {
+    return (
+      <main className="w-screen h-screen flex text-center items-center justify-center text-5xl text-primary">
+        <p>Loading...</p>
+        <TbCircleDotted />
+      </main>
+    ); // Render this or a similar message when there are no cars
   }
 
   return (
     <main className="">
       <div className={` text-center bg-white`}>
-        <div className="bg-black banner overflow-hidden flex flex-col  justify-center gap-5 ">
+        <div className="bg-black banner overflow-hidden flex flex-col justify-center gap-5 ">
           <FeaturedCarousel featuredCars={featuredCars} />
         </div>
       </div>
-      <section className="bg-primary p-14">
-        <p className="text-center text-white font-extralight p-8 pt-0 text-2xl">
-          You wanna search for something?
+      <section className="bg-primary px-4 py-8 lg:p-14">
+        <p className="text-center text-white font-bol pb-4 text-3xl">
+          Looking for something?
         </p>
         <Search />
       </section>
